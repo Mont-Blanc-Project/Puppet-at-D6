@@ -1,0 +1,7 @@
++:root:ALL
++:nagios:ALL
++:hca-admin:ALL
+<% users.each do |user|-%>
++:<%= user %>:ALL
+<% end -%>
+-:ALL:ALL
