@@ -5,11 +5,11 @@ class pam_slurm ($clus) {
     group  => 'root',
     mode   => '755',
   }
-	file { '/lib/security/pam_slurm.so':
-		ensure  => file,
-		owner   => 'root',
-		group   => 'root',
-		mode    => '755',
-		source => "puppet:///modules/pam_slurm/pam_slurm-${clus}.so",
-	}
+  file { '/lib/security/pam_slurm.so':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '755',
+    source  => "puppet:///modules/pam_slurm/pam_slurm-${clus}.so",
+  }
 }
