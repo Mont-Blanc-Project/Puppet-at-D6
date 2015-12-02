@@ -25,50 +25,21 @@
 #of the authors and should not be interpreted as representing official policies,
 #either expressed or implied, of the FreeBSD Project.
 
-class basic_packages {
-  package { "screen":
-    ensure => latest,
+class admin_users {
+  sudo::conf {'uriviba':
+    priority => 10,
+    content  => 'uriviba ALL=(ALL) NOPASSWD: ALL',
   }
-  package { "aptitude":
-    ensure => latest,
+  sudo::conf {'druiz':
+    priority => 10,
+    content  => 'druiz ALL=(ALL) NOPASSWD: ALL',
   }
-  package { "vim":
-    ensure => latest,
+  sudo::conf {'fmantovani':
+    priority => 10,
+    content  => 'fmantovani ALL=(ALL) NOPASSWD: ALL',
   }
-  package { "bash-completion":
-    ensure => latest,
-  }
-  package { "command-not-found":
-    ensure => latest,
-  }
-  package { "git":
-    ensure => latest,
-  }
-  package { "htop":
-    ensure => latest,
-  }
-  package { "molly-guard":
-    ensure => latest,
-  }
-  package { "mlocate":
-    ensure => latest,
-  }
-  package { "memtester":
-    ensure => latest,
-  }
-  package { "gdb":
-    ensure => latest,
-  }
-  package { "zsh":
-    ensure => latest,
-  }
-  package { "bc":
-    ensure => latest,
-  }
-  package { "tree":
-    ensure => latest,
-  }
-  package { "mercurial":
-    ensure => latest,
-  }
+  sudo::conf {'benchmark':
+    priority => 20,
+    content  => '%benchmark ALL=NOPASSWD: /usr/bin/cpufreq-set, /usr/sbin/memtester',
+  }	
 }

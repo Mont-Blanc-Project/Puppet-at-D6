@@ -64,8 +64,17 @@ class basenode($clus_name ){
   }
   Class['munge'] -> Class['slurm'] 
   Class['mount_nfs'] -> Class['slurm'] 
-  package {"mercurial": 
-    ensure => latest,
+}
+
+class xgeneIINode {
+  class { 'basenode':
+    clus_name => "xgene2",
+  }
+}
+node /^xgene2-[1-4]\.alps$/' {
+  include xgeneIINode
+  class { 'allow_access':
+    users => []
   }
 }
 
